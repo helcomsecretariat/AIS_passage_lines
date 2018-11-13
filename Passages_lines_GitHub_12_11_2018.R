@@ -1,12 +1,12 @@
 #####################################################################
 # 
-# R Script to  pre-process Automatic Identification System (AIS) data to produce statistics with  passage lines
-# Developped by Florent NICOLAS, HELCOM Secretariat - 12/11/18
+# R Script to  pre-process Automatic Identification System (AIS) data to produce statistics with passage lines
+# Developped by Florent NICOLAS, HELCOM Secretariat - 12/11/18 - florent.nicolas@helcom.fi
 # R Version 3.4.3
 #
 # Input data: monthly AIS data files already harmonized (pre-processed) using the script 1 on the HELCOM Secretariat GitHub repository (https://github.com/helcomsecretariat/AIS-data-processing-for-statistics-and-maps) 
 # Required data: 
-   #- a shape file with the line as polygons. An example is available on this repository.
+   #- a shape file with the line as polygons. An example is available on this repository (AIS_predefined_lines.zip).
    #- a csv file with informations on the ship types of the ships to have more precised statistics. An example of the data is also available in this repository. 
 # Ouput data: a csv file with the number of passages per line / per year and per ship type. A sample of the data is also available in this repository.
 #
@@ -35,7 +35,6 @@ library("lubridate")
 # import data
 
 setwd("E:/test_division/division_finale2017/file_list_months_weeks") # path were the monthly files are stored
-#setwd("D:/HELCOM AIS data/division_finale2017/file_list_months_weeks")
 fileList <- list.files(pattern="ais_.*\\.csv", recursive=FALSE)
 
 for (file in fileList) {
@@ -52,7 +51,7 @@ for (file in fileList) {
   date <- strptime(data_2017$timestamp_pretty, "%d/%m/%Y %H:%M:%S")
   month <- unique(months(as.Date(date)))
   
-  # removing wrong mmsi (111111111 and wrong imo
+  # removing wrong mmsi (111111111) and wrong imo numbers if in data
   data_2017 <- subset(data_2017,data_2017$mmsi != "111111111")
   #for too big IMO numbers:
   data_2017$imo <- as.numeric(as.character(data_2017$imo))
@@ -80,7 +79,8 @@ for (file in fileList) {
   
   # 2. import polygons from shp file. 
   polygons <-readOGR("W:/shipping/AIS_crossing_lines","AIS_predefined_lines")
-  #plot(polygons)
+  #Polygons are used because it is possible to have the exact time when the ships are crossing it and it is easier for the computer to process
+  #the polygons have a rather small width, only few kilometers.
   
   # 3 . to confirm the same reference system
   proj4string(data) <- proj4string(polygons)
