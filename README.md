@@ -10,9 +10,9 @@ The script was developped for the "Shipping Accidents in the Baltic Sea from 201
 ### Prerequisites
 
 - R version 3.4.3 and R Studio 1.0.153
-- AIS data already harmonized (script: https://github.com/helcomsecretariat/AIS-data-processing-for-statistics-and-maps/ ). A sample is available in the repository.
+- AIS data already harmonized (script: https://github.com/helcomsecretariat/AIS-data-processing-for-statistics-and-maps/ ). A sample is available in the repository to understand the data format.
 - a shape file with the lines defined as polygons. The polygons are used to be able to have the exact time when the ships are crossing it. It is also easier for the computer to process it. They have a rather small width.
-- a csv file with ship information (shiptypes). A sample is available in the repository.
+- a csv file with ship information (shiptypes). A sample is available in the repository to understand the data format.
 - relevant paths to read the AIS data, shp file and csv file with ship information.
 
 ## Authors
