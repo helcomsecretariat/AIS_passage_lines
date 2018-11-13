@@ -130,7 +130,7 @@ for (file in fileList) {
                      Ship = imo[1])
   
   # import shiptype information (bought from commercial provider). This helps to have more accurate information on the shiptypes than the AIS data offer. 
-  shiplist <- read.csv("E:/ship_list/shiplist_2017_final.csv", sep=";")
+  shiplist <- read.csv("E:/ship_list/shiplist_2017_final.csv", sep=";") # be careful of the file name of the data sample in this reposotiry, it is shiplist_2017_final_sample.csv !
   shiptype <- shiplist[,c("imo","HELCOM_Gross_ShipType", "HELCOM_Detail_ShipType")] 
   colnames(shiptype)[1] <- "Ship"
   
