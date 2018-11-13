@@ -1,0 +1,3 @@
+"timestamp_pretty";"timestamp";"msgid";"targetType";"mmsi";"lat";"long";"posacc";"sog";"cog";"shipType";"dimBow";"draught";"dimPort";"dimStarboard";"dimStern";"month";"week";"imo";"country";"name";"callsign"
+"13/05/2017 00:51:19";1494636679000;18;"B";203504300;54.355747;11.0624;1;0;276.8;"SAILING";4;NA;2;2;1;5;19;NA;"Austria";"VISION";"OEX6001"
+"13/05/2017 01:12:18";1494637938000;18;"B";203504300;54.35573;11.062417;1;0;190.6;"SAILING";4;NA;2;2;1;5;19;NA;"Austria";"VISION";"OEX6001"
